@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import home from '../../content/pages/home.json';
+
+const { hero, services, about, contact } = home;
+const icons = ['◆', '●', '▲', '■'];
+---
+<Base>
+  <!-- ===================== HOME / HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 class="hero-title">{hero.title}</h1>
+      <p class="hero-subtitle">{hero.subtitle}</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn">{hero.primaryButton}</a>
+        <a href="#about" class="btn btn-ghost">{hero.secondaryButton}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OUR SERVICES ===================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">{services.heading}</h2>
+      <p class="section-lead">{services.lead}</p>
+
+      <div class="cards">
+        {services.items.map((item, i) => (
+          <article class="card">
+            <div class="card-icon">{icons[i % icons.length]}</div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <h2 class="section-title">{about.heading}</h2>
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+
+        <ul class="about-stats">
+          {about.stats.map((stat) => (
+            <li><strong>{stat.value}</strong><span>{stat.label}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div class="about-media" aria-hidden="true">
+        <div class="media-placeholder">[ Image or photo goes here ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="contact-intro">
+        <h2 class="section-title">{contact.heading}</h2>
+        <p>{contact.intro}</p>
+        <ul class="contact-details">
+          <li><span class="contact-label">Email</span> {contact.email}</li>
+          <li><span class="contact-label">Phone</span> {contact.phone}</li>
+          <li><span class="contact-label">Location</span> {contact.location}</li>
+        </ul>
+      </div>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <p class="form-note">[Form does nothing for now!]</p>
+      </form>
+    </div>
+  </section>
+</Base>

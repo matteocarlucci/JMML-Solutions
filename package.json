@@ -1,0 +1,17 @@
+{
+  "name": "jmml-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev --port 4321 --host\"",
+    "astro:dev": "astro dev",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^2.5.1",
+    "astro": "^6.4.8",
+    "tinacms": "^3.9.3"
+  }
+}

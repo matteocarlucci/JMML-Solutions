@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "eyebrow": "Digital Professional Services",
+    "title": "JMML Solutions Inc.",
+    "subtitle": "[Short supporting sentence that explains what JMML Solutions does and who you help. Keep it to one or two lines.]",
+    "primaryButton": "Start a conversation",
+    "secondaryButton": "Learn more"
+  },
+  "services": {
+    "heading": "Our Services",
+    "lead": "[One sentence introducing the services JMML Solutions provides.]",
+    "items": [
+      {
+        "title": "Project Management",
+        "description": "[Briefly describe this service and the value it brings to clients.]"
+      },
+      {
+        "title": "Property Management",
+        "description": "[Briefly describe this service and the value it brings to clients.]"
+      }
+    ]
+  },
+  "about": {
+    "heading": "About JMML Solutions Inc.",
+    "paragraphs": [
+      "[Tell your story here. Who is JMML Solutions Inc., what do you believe in, and why do clients choose to work with you? Two or three short paragraphs work well.]",
+      "[Second paragraph — perhaps your experience, your approach, or what makes you different from other firms.]"
+    ],
+    "stats": [
+      {
+        "value": "[X]+",
+        "label": "Projects delivered"
+      },
+      {
+        "value": "[X]+",
+        "label": "Happy clients"
+      },
+      {
+        "value": "[X]",
+        "label": "Years of experience"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "intro": "[Invite people to reach out. Replace the contact details below with your real information.]",
+    "email": "hello@jmml.example",
+    "phone": "+00 000 000 0000",
+    "location": "[Your city / address]"
+  }
+}

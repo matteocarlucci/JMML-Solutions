@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# TinaCMS — generated admin app and generated client code
+public/admin/
+tina/__generated__/
+
+# environment / secrets (Tina keys go here — never commit them)
+.env
+.env.*
+!.env.example
+
+# os / editor noise
+.DS_Store

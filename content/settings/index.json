@@ -1,0 +1,11 @@
+{
+  "companyName": "JMML Solutions Inc.",
+  "logo": "/images/new-logo.png",
+  "nav": [
+    { "label": "Home", "target": "#home" },
+    { "label": "Services", "target": "#services" },
+    { "label": "About", "target": "#about" },
+    { "label": "Contact", "target": "#contact" }
+  ],
+  "ctaLabel": "Get in touch"
+}

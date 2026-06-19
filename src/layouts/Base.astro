@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import settings from '../../content/settings/index.json';
+
+const { title = `${settings.companyName} — Digital Professional Services` } = Astro.props;
+const year = new Date().getFullYear();
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="JMML delivers digital professional services that help your business grow. [To be edited]"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===================== HEADER / NAVIGATION ===================== -->
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a href="#top" class="logo">
+          <img src={settings.logo} alt={settings.companyName} class="logo-img" />
+        </a>
+
+        <nav class="nav" id="nav">
+          {settings.nav.map((item) => (
+            <a href={item.target} class="nav-link">{item.label}</a>
+          ))}
+          <a href="#contact" class="btn btn-small nav-cta">{settings.ctaLabel}</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="logo logo-small">
+          <img src={settings.logo} alt={settings.companyName} class="logo-img" />
+        </span>
+        <p>&copy; {year} {settings.companyName} All rights reserved.</p>
+        <nav class="footer-nav">
+          {settings.nav.map((item) => (
+            <a href={item.target}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation menu open/close
+      const navToggle = document.getElementById('navToggle');
+      const nav = document.getElementById('nav');
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = nav.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        nav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
