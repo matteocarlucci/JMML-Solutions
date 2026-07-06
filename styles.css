@@ -375,3 +375,7 @@ section { padding: 96px 0; }
   .hero { padding: 88px 0; }
   .about-stats { flex-wrap: wrap; gap: 24px; }
 }
+.rounded-image {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
