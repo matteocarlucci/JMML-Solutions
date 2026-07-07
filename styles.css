@@ -258,6 +258,10 @@ section { padding: 96px 0; }
   font-weight: 500;
 }
 
+/* ---------- Why Choose Us ---------- */
+.why-choose { text-align: center; }
+.why-choose .section-lead { margin-left: auto; margin-right: auto; }
+
 /* ---------- Contact ---------- */
 .contact-inner {
   display: grid;
