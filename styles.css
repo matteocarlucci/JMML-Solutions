@@ -326,6 +326,15 @@ section { padding: 96px 0; }
   color: var(--color-ink-soft);
   margin: 14px 0 0;
 }
+.form-note.is-success { color: var(--color-accent); }
+.form-note.is-error { color: #d0342c; }
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 /* ---------- Footer ---------- */
 .site-footer {

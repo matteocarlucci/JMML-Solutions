@@ -24,3 +24,40 @@ nav.querySelectorAll("a").forEach((link) => {
 
 // 3: Keep the footer copyright year current automatically
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// 4: Submit the contact form to Formspree without leaving the page
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    formStatus.textContent = "Sending…";
+    formStatus.className = "form-note";
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Thanks! Your message has been sent.";
+        formStatus.className = "form-note is-success";
+        contactForm.reset();
+      } else {
+        formStatus.textContent = "Something went wrong. Please try again or email us directly.";
+        formStatus.className = "form-note is-error";
+      }
+    } catch (error) {
+      formStatus.textContent = "Something went wrong. Please try again or email us directly.";
+      formStatus.className = "form-note is-error";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
