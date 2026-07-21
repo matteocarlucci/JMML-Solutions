@@ -33,8 +33,26 @@ Open `styles.css` and edit the values near the top under `:root`
 (for example `--color-accent: #2f6df6;`). Changing those few lines
 re-themes the whole site.
 
+## Making the contact form send emails
+
+The contact form submits to [Formspree](https://formspree.io), a free
+service that emails you whenever someone submits the form — no backend
+required. To activate it:
+
+1. Sign up at [formspree.io](https://formspree.io) (free plan is fine).
+2. Create a new form and set the recipient to the address you want
+   submissions sent to (e.g. `info@jmml.ca`).
+3. Formspree gives you an endpoint like
+   `https://formspree.io/f/abcdwxyz`.
+4. Open `index.html`, find the `<form id="contactForm" ...>` tag near
+   "Get in touch", and replace `YOUR_FORM_ID` in the `action` attribute
+   with your real form ID.
+5. Reload the page and submit a test message — it should show
+   "Thanks! Your message has been sent." and arrive in your inbox
+   (check spam the first time).
+
 ## Still to do later (when you're ready)
 
-- Make the contact form actually send emails.
+- Set your real Formspree form ID (see above) so the contact form works.
 - Add your logo image and any photos.
 - Publish it online (hosting).
