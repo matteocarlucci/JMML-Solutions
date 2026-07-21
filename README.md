@@ -51,8 +51,24 @@ required. To activate it:
    "Thanks! Your message has been sent." and arrive in your inbox
    (check spam the first time).
 
+## Tracking visits with Google Analytics
+
+The site includes the standard Google Analytics (GA4) tracking snippet so
+you can see how many people visit and where they come from. To activate it:
+
+1. Sign up at [analytics.google.com](https://analytics.google.com) (free)
+   and create a property for `jmml.ca`.
+2. Under Admin → Data Streams, add a Web stream for your site. Google
+   gives you a Measurement ID that looks like `G-ABC123XYZ`.
+3. Open `index.html` and replace both occurrences of `G-XXXXXXXXXX`
+   (in the two `<script>` tags near the top of `<head>`) with your real
+   Measurement ID.
+4. Reload the site, then check the "Realtime" report in Google Analytics
+   — your visit should show up within a minute or two.
+
 ## Still to do later (when you're ready)
 
 - Set your real Formspree form ID (see above) so the contact form works.
-- Add your logo image and any photos.
+- Set your real Google Analytics Measurement ID (see above) so visits are tracked.
+- Add more photos as you get them (the logo and two project images are already in place).
 - Publish it online (hosting).
