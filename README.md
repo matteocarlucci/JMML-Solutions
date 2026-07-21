@@ -33,7 +33,7 @@ Open `styles.css` and edit the values near the top under `:root`
 (for example `--color-accent: #2f6df6;`). Changing those few lines
 re-themes the whole site.
 
-## Making the contact form send emails
+## Making the contact form send emails (Already done, just keeping for evidence) 
 
 The contact form submits to [Formspree](https://formspree.io), a free
 service that emails you whenever someone submits the form — no backend
@@ -53,6 +53,6 @@ required. To activate it:
 
 ## Still to do later (when you're ready)
 
-- Set your real Formspree form ID (see above) so the contact form works.
-- Add your logo image and any photos.
-- Publish it online (hosting).
+- Change Colour Scheme to Give Brighter Vibes- Maybe Alernate Between 2 Brighter Colours Instead of Current Dark Shades of Blue
+- Make Overall Theme More Professional
+- Add Different Dircectories as Opposed to Single Page
