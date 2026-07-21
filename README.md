@@ -33,7 +33,7 @@ Open `styles.css` and edit the values near the top under `:root`
 (for example `--color-accent: #2f6df6;`). Changing those few lines
 re-themes the whole site.
 
-## Making the contact form send emails
+## Making the contact form send emails (Already done, just keeping for evidence) 
 
 The contact form submits to [Formspree](https://formspree.io), a free
 service that emails you whenever someone submits the form — no backend
@@ -72,3 +72,6 @@ you can see how many people visit and where they come from. To activate it:
 - Set your real Google Analytics Measurement ID (see above) so visits are tracked.
 - Add more photos as you get them (the logo and two project images are already in place).
 - Publish it online (hosting).
+- Change Colour Scheme to Give Brighter Vibes- Maybe Alernate Between 2 Brighter Colours Instead of Current Dark Shades of Blue
+- Make Overall Theme More Professional
+- Add Different Dircectories as Opposed to Single Page
