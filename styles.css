@@ -226,6 +226,30 @@ section { padding: 96px 0; }
   max-width: 1120px;
   margin: 0 auto;
 }
+.cards-horizontal {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 980px;
+}
+.cards-horizontal .card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  row-gap: 4px;
+  align-items: start;
+  text-align: left;
+}
+.cards-horizontal .card-icon {
+  grid-row: 1 / span 2;
+  margin: 0;
+}
+.cards-horizontal .card h3 {
+  grid-column: 2;
+  align-self: center;
+  margin: 0;
+}
+.cards-horizontal .card p {
+  grid-column: 2;
+}
 .card {
   position: relative;
   overflow: hidden;
