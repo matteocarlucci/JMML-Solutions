@@ -227,23 +227,52 @@ section { padding: 96px 0; }
   margin: 0 auto;
 }
 .card {
-  background: var(--color-panel);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-panel);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 15px 15px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 32px;
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 10px 26px rgba(4, 10, 22, 0.35);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
-.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 22px 50px rgba(4, 10, 22, 0.5), 0 0 0 1px rgba(77, 141, 251, 0.35);
+}
+.card:hover::before { transform: scaleX(1); }
 .card-icon {
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
-  background: rgba(77, 141, 251, 0.18);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(77, 141, 251, 0.4), rgba(77, 141, 251, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(77, 141, 251, 0.3);
   color: var(--color-accent);
   margin-bottom: 18px;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover .card-icon {
+  background: radial-gradient(circle at 30% 30%, rgba(77, 141, 251, 0.65), rgba(77, 141, 251, 0.25));
+  transform: scale(1.1);
+  box-shadow: 0 0 0 6px rgba(77, 141, 251, 0.14), inset 0 0 0 1px rgba(77, 141, 251, 0.45);
 }
 .icon-svg {
   width: 24px;
