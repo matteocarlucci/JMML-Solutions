@@ -185,7 +185,7 @@ section { padding: 96px 0; }
   background:
     radial-gradient(1200px 500px at 80% -10%, rgba(77, 141, 251, 0.16), transparent),
     linear-gradient(180deg, rgba(11, 27, 51, 0.86), rgba(11, 27, 51, 0.93)),
-    url("hero-bg.jpg") center / cover no-repeat;
+    url("images/hero-bg.jpg") center / cover no-repeat;
   text-align: center;
   padding: 120px 0;
 }
