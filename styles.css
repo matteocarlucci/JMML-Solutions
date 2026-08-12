@@ -226,7 +226,30 @@ section { padding: 96px 0; }
 
 /* ---------- Services / Cards ---------- */
 .services { text-align: center; }
-.services .section-lead { margin-left: auto; margin-right: auto; }
+.services .section-lead { margin-left: auto; margin-right: auto; margin-bottom: 24px; }
+.check-list {
+  list-style: none;
+  margin: 0 auto 48px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 360px;
+  text-align: left;
+}
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+}
+.check-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
