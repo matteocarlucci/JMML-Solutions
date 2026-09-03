@@ -491,7 +491,7 @@ section { padding: 96px 0; }
 .footer-col { display: flex; flex-direction: column; gap: 14px; }
 .footer-brand { gap: 16px; }
 .logo-small { display: inline-flex; color: var(--color-white); font-size: 1.2rem; }
-.logo-small .logo-img { height: 52px; }
+.logo-small .logo-img { height: 88px; }
 .footer-tagline { margin: 0; font-size: 0.9rem; line-height: 1.6; max-width: 32ch; }
 .footer-heading {
   margin: 0;
