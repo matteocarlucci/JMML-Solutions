@@ -9,9 +9,14 @@
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("nav");
 
+const siteHeader = document.querySelector(".site-header");
+
 navToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", isOpen);
+  // The header is transparent over the hero image, so give it a solid
+  // backdrop while the mobile menu is hanging open beneath it.
+  siteHeader.classList.toggle("is-menu-open", isOpen);
 });
 
 // Close the menu when any link inside it is clicked (mobile)
@@ -19,6 +24,7 @@ nav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
+    siteHeader.classList.remove("is-menu-open");
   });
 });
 
@@ -82,3 +88,11 @@ if (revealEls.length && "IntersectionObserver" in window && !prefersReducedMotio
 } else {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
+
+// 6: Fade a navy bar in behind the header once the user scrolls off the
+// hero image. Until then the header floats transparently over the photo.
+const onHeaderScroll = () => {
+  siteHeader.classList.toggle("is-scrolled", window.scrollY > 40);
+};
+onHeaderScroll();
+window.addEventListener("scroll", onHeaderScroll, { passive: true });

@@ -38,6 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/business-people-are-brainstorming.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -65,8 +66,22 @@
   </header>
 
   <main>
-    <!-- ===================== HOME / HERO ===================== -->
+    <!-- ===================== HOME / HERO =====================
+         Full-screen opening image with the headline written over it.
+         To change the photo, overwrite images/business-people-are-brainstorming.jpg
+         (keep the filename) — nothing else needs editing.
+         ======================================================== -->
     <section class="hero" id="home">
+      <div class="hero-media">
+        <img
+          src="images/business-people-are-brainstorming.jpg"
+          alt="A project team brainstorming around a table"
+          class="hero-img"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+
       <div class="container hero-inner">
         <p class="eyebrow">Digital Professional Services</p>
         <h1 class="hero-title">
@@ -80,6 +95,10 @@
           <a href="#about" class="btn btn-ghost">Learn more</a>
         </div>
       </div>
+
+      <a href="#services" class="hero-scroll" aria-label="Scroll to services">
+        <span class="hero-scroll-line"></span>
+      </a>
     </section>
 
     <!-- ===================== OUR SERVICES ===================== -->
