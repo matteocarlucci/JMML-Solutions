@@ -55,6 +55,18 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; text-decoration: none; }
 
+/* Visible keyboard-focus ring for every interactive element — links,
+   buttons, and form fields all had no focus style before, which fails
+   keyboard-only navigation. :focus-visible keeps it off mouse clicks. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .container {
   width: 100%;
   max-width: var(--maxw);
