@@ -65,6 +65,11 @@
 </head>
 <body>
 
+  <!-- Thin bar across the very top that fills as the page is scrolled. -->
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress-bar" id="scrollProgressBar"></span>
+  </div>
+
   <!-- ===================== HEADER / NAVIGATION ===================== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
@@ -327,6 +332,10 @@
       <p>&copy; <span id="year"></span> JMML Solutions Inc. All rights reserved.</p>
     </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5,12 12,5 19,12"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
