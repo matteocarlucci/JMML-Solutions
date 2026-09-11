@@ -443,27 +443,112 @@ section { padding: 96px 0; }
 .card p { margin: 0; color: var(--color-ink-soft); line-height: 1.65; }
 
 /* ---------- About ---------- */
-.about { background: var(--color-bg-alt); }
+/* A soft brand-colored glow in the corner, echoing the same radial
+   treatment used in the hero and Why Choose Us sections, so the page
+   reads as one system rather than a flat block of navy. */
+.about {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 480px at 88% -8%, rgba(77, 141, 251, 0.12), transparent),
+    var(--color-bg-alt);
+}
 .about-inner {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 56px;
   align-items: center;
 }
+.about-text .eyebrow { margin: 0 0 12px; }
 .about-text p { color: var(--color-ink-soft); line-height: 1.75; margin: 0 0 18px; }
+
 .about-stats {
   list-style: none;
   display: flex;
-  gap: 36px;
+  gap: 16px;
   padding: 0;
   margin: 32px 0 0;
 }
-.about-stats strong {
-  display: block;
-  font-size: 2rem;
+.about-stats li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.about-stats li:hover {
+  border-color: rgba(77, 141, 251, 0.4);
+  transform: translateY(-2px);
+}
+.about-stat-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(77, 141, 251, 0.4), rgba(77, 141, 251, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(77, 141, 251, 0.3);
   color: var(--color-accent);
 }
-.about-stats span { color: var(--color-ink-soft); font-size: 0.95rem; }
+.about-stat-icon .icon-svg { width: 20px; height: 20px; }
+.about-stat-text { display: flex; flex-direction: column; }
+.about-stats strong {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-white);
+}
+.about-stats span { color: var(--color-ink-soft); font-size: 0.85rem; }
+
+/* The source image is a busy white infographic, which sits harshly on
+   a dark page — matting it in a navy frame (plus a soft accent glow and
+   the same dot pattern used on the service cards) makes it read as a
+   deliberate showcase piece rather than a floating screenshot. */
+.about-media { position: relative; }
+.about-media::before {
+  content: "";
+  position: absolute;
+  top: -14%;
+  right: -12%;
+  width: 65%;
+  height: 65%;
+  background: radial-gradient(circle, rgba(77, 141, 251, 0.35), transparent 70%);
+  filter: blur(36px);
+  z-index: 0;
+}
+.about-media::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: -22px;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(circle, rgba(234, 241, 255, 0.14) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  z-index: 0;
+}
+.about-media-frame {
+  position: relative;
+  z-index: 1;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow-lg);
+}
+.rounded-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 6px);
+}
 .media-placeholder {
   background: linear-gradient(135deg, #143257, #0d1f39);
   border: 1px dashed #2f4a73;
@@ -656,8 +741,4 @@ section { padding: 96px 0; }
   .hero-scroll { bottom: 24px; height: 44px; }
   .about-stats { flex-wrap: wrap; gap: 24px; }
   .footer-top { grid-template-columns: 1fr; }
-}
-.rounded-image {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
