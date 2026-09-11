@@ -96,3 +96,23 @@ const onHeaderScroll = () => {
 };
 onHeaderScroll();
 window.addEventListener("scroll", onHeaderScroll, { passive: true });
+
+// 7: Fill the top progress bar with how far down the page we are, and
+// reveal the "back to top" button once we've scrolled past the hero.
+const scrollProgressBar = document.getElementById("scrollProgressBar");
+const backToTop = document.getElementById("backToTop");
+
+const onScrollProgress = () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgressBar.style.width = pct + "%";
+  backToTop.classList.toggle("is-visible", scrollTop > window.innerHeight * 0.6);
+};
+onScrollProgress();
+window.addEventListener("scroll", onScrollProgress, { passive: true });
+window.addEventListener("resize", onScrollProgress);
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+});
