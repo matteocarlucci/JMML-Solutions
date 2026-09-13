@@ -735,15 +735,14 @@ section { padding: 96px 0; }
   gap: 56px;
 }
 .contact-intro p { color: var(--color-ink-soft); }
-/* A second, punchier question under the main headline — same idea as
-   a landing-page kicker line, in the lighter accent shade so it reads
-   as a distinct beat rather than a continuation of the h2. */
+/* A second question as part of the same heading (not a separate
+   element) so it's guaranteed to share the h2's font/weight — only
+   size and color set it apart as a distinct, quieter beat. */
 .contact-subheading {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 600;
+  display: block;
+  font-size: 0.6em;
   color: var(--color-accent-dark);
-  margin: 0 0 14px;
+  margin-top: 8px;
 }
 /* The "free consultation" offer as its own pill rather than buried at
    the end of a sentence — same pill language as the Services section's
@@ -761,7 +760,10 @@ section { padding: 96px 0; }
   font-weight: 600;
   font-size: 0.92rem;
 }
-.contact-badge .icon-svg { width: 17px; height: 17px; color: var(--color-accent); }
+/* display:block removes the small inline-baseline gap SVGs get by
+   default, which was throwing off the vertical centering next to the
+   text. */
+.contact-badge .icon-svg { display: block; width: 17px; height: 17px; flex-shrink: 0; color: var(--color-accent); }
 .contact-details {
   list-style: none;
   padding: 0;
