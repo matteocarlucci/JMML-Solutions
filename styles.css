@@ -601,7 +601,11 @@ section { padding: 96px 0; }
   max-width: 720px;
   margin: 0 auto 40px;
 }
-.agile-intro .section-lead { margin-left: auto; margin-right: auto; }
+.agile-intro .section-lead {
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-accent-dark);
+}
 .agile-intro p:not(.section-lead) { color: var(--color-ink-soft); line-height: 1.75; }
 /* Framed like a browser/app window (a small "chrome" bar with traffic-
    light dots) rather than a plain matted screenshot — reads as a
