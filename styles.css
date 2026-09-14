@@ -584,13 +584,88 @@ section { padding: 96px 0; }
 }
 .services .card:hover { background-color: rgba(20, 42, 74, 0.72); }
 
+/* ---------- Agile Project Management ---------- */
+/* Sits on the same --color-bg-alt shade as About right after it (so
+   the Services section's bottom wedge, tuned for that shade, still
+   flows into it seamlessly) — a thin top border on .about below gives
+   the two sections a visible seam despite sharing a background. */
+.agile {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background:
+    radial-gradient(1000px 480px at 50% 115%, rgba(77, 141, 251, 0.12), transparent),
+    var(--color-bg-alt);
+}
+.agile-intro {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+.agile-intro .section-lead { margin-left: auto; margin-right: auto; }
+.agile-intro p:not(.section-lead) { color: var(--color-ink-soft); line-height: 1.75; }
+.agile-body {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+.agile-subhead {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 20px;
+}
+.agile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+}
+.agile-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-ink-soft);
+  line-height: 1.5;
+}
+.agile-list .check-icon {
+  width: 1.15em;
+  height: 1.15em;
+  margin-top: 0.15em;
+}
+/* A highlighted callout for the payoff line, rather than one more
+   plain paragraph at the end of the section. */
+.agile-result {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: rgba(77, 141, 251, 0.08);
+  border: 1px solid rgba(77, 141, 251, 0.3);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+.agile-result-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 6px;
+}
+.agile-result p { margin: 0; color: var(--color-ink); line-height: 1.6; }
+
 /* ---------- About ---------- */
 /* A soft brand-colored glow in the corner, echoing the same radial
    treatment used in the hero and Why Choose Us sections, so the page
-   reads as one system rather than a flat block of navy. */
+   reads as one system rather than a flat block of navy. Sits right
+   after Agile, which shares this same background shade, so a thin
+   top border gives the two a visible seam. */
 .about {
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--color-border);
   background:
     radial-gradient(900px 480px at 88% -8%, rgba(77, 141, 251, 0.12), transparent),
     var(--color-bg-alt);
@@ -958,6 +1033,7 @@ section { padding: 96px 0; }
   .about-inner,
   .contact-inner { grid-template-columns: 1fr; }
   .about-media { order: -1; }
+  .agile-list { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-tagline { max-width: none; }
