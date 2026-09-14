@@ -604,6 +604,7 @@ section { padding: 96px 0; }
 .agile-intro .section-lead {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   color: var(--color-accent-dark);
   font-family: var(--font-heading);
   font-weight: 700;
