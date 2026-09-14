@@ -611,13 +611,15 @@ section { padding: 96px 0; }
 .agile-intro p:not(.section-lead) { color: var(--color-ink-soft); line-height: 1.75; }
 /* Framed like a browser/app window (a small "chrome" bar with traffic-
    light dots) rather than a plain matted screenshot — reads as a
-   polished product mockup instead of a stray image drop. Same width
-   as .agile-body below so the two stacked blocks share a clean left/
-   right edge instead of the image overhanging a narrower column. */
+   polished product mockup instead of a stray image drop. Deliberately
+   narrower than .agile-body (640px vs 900px) so it reads as a
+   supporting visual rather than the dominant element of the section —
+   at full column width it was taking up ~700px of vertical space and
+   overwhelming everything around it. */
 .agile-media {
   position: relative;
-  max-width: 900px;
-  margin: 0 auto 48px;
+  max-width: 640px;
+  margin: 0 auto 40px;
 }
 .agile-media::before {
   content: "";
