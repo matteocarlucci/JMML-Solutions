@@ -603,14 +603,14 @@ section { padding: 96px 0; }
 }
 .agile-intro .section-lead { margin-left: auto; margin-right: auto; }
 .agile-intro p:not(.section-lead) { color: var(--color-ink-soft); line-height: 1.75; }
-/* Same framed-showcase treatment as the About/Services diagrams — the
-   source graphic is a dense white infographic, and matting it in a
-   navy frame with a soft glow keeps it from looking like a stray
-   screenshot dropped on a dark page. Wider than those (960px) since
-   this one is denser and needs the extra room to stay legible. */
+/* Framed like a browser/app window (a small "chrome" bar with traffic-
+   light dots) rather than a plain matted screenshot — reads as a
+   polished product mockup instead of a stray image drop. Same width
+   as .agile-body below so the two stacked blocks share a clean left/
+   right edge instead of the image overhanging a narrower column. */
 .agile-media {
   position: relative;
-  max-width: 960px;
+  max-width: 900px;
   margin: 0 auto 48px;
 }
 .agile-media::before {
@@ -638,12 +638,34 @@ section { padding: 96px 0; }
 .agile-media-frame {
   position: relative;
   z-index: 1;
+  overflow: hidden;
   background: var(--color-panel);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 14px;
   box-shadow: var(--shadow-lg);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
+.agile-media:hover .agile-media-frame {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(4, 10, 22, 0.5), 0 0 0 1px rgba(77, 141, 251, 0.25);
+}
+.agile-media-chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+.agile-media-chrome span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+.agile-media-chrome span:nth-child(1) { background: #ff5f57; opacity: 0.85; }
+.agile-media-chrome span:nth-child(2) { background: #febc2e; opacity: 0.85; }
+.agile-media-chrome span:nth-child(3) { background: #28c840; opacity: 0.85; }
+.agile-media-frame .rounded-image { padding: 14px; }
 .agile-body {
   max-width: 900px;
   margin: 0 auto;
