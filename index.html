@@ -139,14 +139,20 @@
         <svg class="services-art-lines" viewBox="0 0 1200 700" preserveAspectRatio="none" focusable="false">
           <defs>
             <filter id="servicesLineGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="2.2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+              <feGaussianBlur stdDeviation="3" />
             </filter>
           </defs>
-          <g fill="none" stroke-linecap="round" filter="url(#servicesLineGlow)">
+          <!-- Static soft-glow underlay — painted once and left alone, so the
+               blur filter is never recomputed on a moving frame. -->
+          <g class="services-art-glow-paths" fill="none" stroke-linecap="round" filter="url(#servicesLineGlow)">
+            <path d="M -40 120 L 260 120 L 340 200 L 700 200 L 780 120 L 1240 120" stroke="#4d8dfb" stroke-width="2.5" />
+            <path d="M -40 560 L 220 560 L 300 480 L 620 480 L 700 560 L 1000 560 L 1080 500 L 1240 500" stroke="#6aa1ff" stroke-width="2.5" />
+            <path d="M 900 -20 L 900 140 L 980 220 L 980 720" stroke="#22d3ee" stroke-width="2" />
+          </g>
+          <!-- Crisp animated overlay — no filter attached, so the
+               stroke-dashoffset animation stays a cheap, compositor-friendly
+               repaint instead of forcing a filter re-render every frame. -->
+          <g fill="none" stroke-linecap="round">
             <path class="services-art-path services-art-path--a" d="M -40 120 L 260 120 L 340 200 L 700 200 L 780 120 L 1240 120" stroke="#4d8dfb" stroke-width="1.4" />
             <path class="services-art-path services-art-path--b" d="M -40 560 L 220 560 L 300 480 L 620 480 L 700 560 L 1000 560 L 1080 500 L 1240 500" stroke="#6aa1ff" stroke-width="1.4" />
             <path class="services-art-path services-art-path--c" d="M 900 -20 L 900 140 L 980 220 L 980 720" stroke="#22d3ee" stroke-width="1.2" />
