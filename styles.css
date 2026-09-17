@@ -674,15 +674,17 @@ section { padding: 96px 0; }
 .card h3 { margin: 0 0 8px; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
 .card p { margin: 0; color: var(--color-ink-soft); line-height: 1.65; }
 
-/* A lighter version of the Why Choose Us glass treatment, so the two
-   card sets read as one system instead of two different styles — the
-   frosted panel picks up a tint of the section's own radial glow. */
+/* A tinted panel rather than true frosted glass — the Services section
+   has a continuously animated backdrop (drifting glow orbs, flowing
+   lines) behind it, and backdrop-filter forces a live re-blur of that
+   moving content on every single frame, which is what made the card
+   fade-in feel choppy. A translucent background color reads almost the
+   same (the glow still shows softly through it) without the live
+   resample cost. */
 .services .card {
-  background-color: rgba(20, 42, 74, 0.55);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  background-color: rgba(20, 42, 74, 0.72);
 }
-.services .card:hover { background-color: rgba(20, 42, 74, 0.72); }
+.services .card:hover { background-color: rgba(20, 42, 74, 0.85); }
 
 /* ---------- Agile Project Management ---------- */
 /* Sits on the same --color-bg-alt shade as About right after it (so
