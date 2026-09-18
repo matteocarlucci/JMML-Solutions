@@ -445,95 +445,63 @@ section { padding: 96px 0; }
 }
 .services .section-lead { margin-left: auto; margin-right: auto; margin-bottom: 24px; }
 
-/* Abstract tech/neon backdrop for Services — a faint circuit grid, drifting
-   glow orbs, and glowing trace lines sitting behind the frosted-glass cards.
-   Painted first (DOM order, no z-index) so it stays under .container and
-   the bottom wedge without needing an explicit stacking context. */
+/* Soft gradient backdrop for Services — a few large, slow-drifting color
+   blobs sitting behind the frosted-glass cards. Painted first (DOM order,
+   no z-index) so it stays under .container and the bottom wedge without
+   needing an explicit stacking context. */
 .services-art {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
-.services-art-grid {
-  position: absolute;
-  inset: -1px;
-  background-image:
-    linear-gradient(rgba(77, 141, 251, 0.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(77, 141, 251, 0.14) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(720px 460px at 50% 38%, #000 0%, transparent 75%);
-  mask-image: radial-gradient(720px 460px at 50% 38%, #000 0%, transparent 75%);
-  opacity: 0.5;
-}
 .services-art-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
+  filter: blur(120px);
+  opacity: 0.45;
   will-change: transform, opacity;
 }
 .services-art-glow--1 {
-  width: 420px;
-  height: 420px;
-  left: -120px;
-  top: -140px;
-  background: radial-gradient(circle, rgba(77, 141, 251, 0.55), transparent 70%);
-  animation: services-glow-drift-a 16s var(--ease-in-out) infinite;
+  width: 560px;
+  height: 560px;
+  left: -160px;
+  top: -180px;
+  background: radial-gradient(circle, rgba(77, 141, 251, 0.45), transparent 70%);
+  animation: services-glow-drift-a 22s var(--ease-in-out) infinite;
 }
 .services-art-glow--2 {
-  width: 460px;
-  height: 460px;
-  right: -160px;
-  bottom: -180px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent 70%);
-  animation: services-glow-drift-b 20s var(--ease-in-out) infinite;
+  width: 600px;
+  height: 600px;
+  right: -200px;
+  bottom: -220px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.32), transparent 70%);
+  animation: services-glow-drift-b 26s var(--ease-in-out) infinite;
 }
 .services-art-glow--3 {
-  width: 300px;
-  height: 300px;
+  width: 420px;
+  height: 420px;
   left: 50%;
   top: 10%;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(106, 161, 255, 0.35), transparent 70%);
-  animation: services-glow-pulse 7s var(--ease-in-out) infinite;
+  background: radial-gradient(circle, rgba(106, 161, 255, 0.28), transparent 70%);
+  animation: services-glow-pulse 9s var(--ease-in-out) infinite;
 }
 @keyframes services-glow-drift-a {
   0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(40px, 30px); }
+  50% { transform: translate(50px, 40px); }
 }
 @keyframes services-glow-drift-b {
   0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-30px, -36px); }
+  50% { transform: translate(-40px, -46px); }
 }
 @keyframes services-glow-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.65; }
-}
-.services-art-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.35;
-}
-.services-art-path {
-  stroke-dasharray: 12 10;
-  animation: services-line-flow 9s linear infinite;
-}
-.services-art-path--b { animation-duration: 12s; animation-direction: reverse; }
-.services-art-path--c { animation-duration: 7s; }
-@keyframes services-line-flow {
-  to { stroke-dashoffset: -220; }
-}
-.services-art-nodes circle {
-  animation: services-glow-pulse 3.2s var(--ease-in-out) infinite;
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.55; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .services-art-glow,
-  .services-art-path,
-  .services-art-nodes circle {
+  .services-art-glow {
     animation: none;
   }
 }
