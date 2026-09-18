@@ -317,7 +317,10 @@ section { padding: 96px 0; }
   animation: hero-fade-in 0.9s var(--ease) forwards, hero-drift 24s var(--ease-in-out) forwards;
 }
 /* The darkening veil. Strongest at the top and bottom so the nav and the
-   scroll cue stay readable, lighter through the middle of the photo. */
+   scroll cue stay readable, lighter through the middle of the photo. The
+   bottom stop lands on the exact solid color Services opens with, so the
+   photo fully dissolves into it before the section edge — no mismatched
+   color band at the seam. */
 .hero::before {
   content: "";
   position: absolute;
@@ -325,7 +328,21 @@ section { padding: 96px 0; }
   z-index: -1;
   background:
     radial-gradient(1200px 600px at 50% 45%, rgba(11, 27, 51, 0.35), rgba(11, 27, 51, 0.78)),
-    linear-gradient(180deg, rgba(7, 20, 42, 0.82) 0%, rgba(11, 27, 51, 0.52) 42%, rgba(7, 20, 42, 0.9) 100%);
+    linear-gradient(180deg, rgba(7, 20, 42, 0.82) 0%, rgba(11, 27, 51, 0.52) 42%, var(--color-bg) 92%);
+}
+/* A diagonal wedge of Services' own color bleeding up into the hero photo —
+   the same transition device used between Services and About — so the
+   boundary reads as an intentional cut rather than a flat seam. */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 130px;
+  z-index: -1;
+  background: var(--color-bg);
+  clip-path: polygon(0 100%, 100% 45%, 100% 100%, 0 100%);
 }
 .hero-inner { position: relative; }
 
